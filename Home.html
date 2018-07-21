@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>UI visualization using D3</title>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/d3.min.js"></script>
+<style type="text/css" >
+body {
+  background:#0b1d2a;
+}
+.rowClass{
+	
+}
+.arrows{
+	position:relative;
+	width: 80px;
+	height: 80px;
+	float:center;
+}
+path{
+	stroke: #ddca7e;
+	fill: transparent;
+	stroke-width: 3px;
+	margin-left: 40%;
+	animation: fading 2s infinite;	
+	-webkit-animation: fading 2s infinite;
+}
+.animate-arrow{
+	margin-left: 100px;
+	animation: fading 2s infinite;
+    animation-name: fading;
+    animation-duration: 2s;
+    animation-timing-function: initial;
+    animation-delay: initial;
+    animation-iteration-count: infinite;
+    animation-direction: initial;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+}
+@keyframes fading{
+	0%{opacity:0}
+	50%{opacity:1}
+	100%{opacity:0}
+}
+.grid-container{
+	display:grid;
+	grid-template-columns:50px 50px 50px; 
+	grid-template-rows:50px 50px 50px;
+	
+}
+.center{
+	text-align: center;
+	vertical-align:middle;
+	display:block;
+	margin:auto;
+}
+.grid-container > div{
+	text-align: center;
+	margin: 0;
+	color: white;
+	background-color:black;
+	top:50%;
+	vertical-align: middle;
+	padding-top: 30% ;
+	border: 1px solid red;
+}
+#error{
+	color: red;
+	margin: 0px;
+	height: 20px;
+	padding: 15px;
+	padding-bottom: 0px;
+}
+h2{
+	color: #FFA500;
+	padding-left: 20%;
+	border-bottom:2px solid #DDCA7E; 
+}
+.div1{
+	display:inline-block;
+	padding-top:0px;
+	float:left;
+	width:30%;
+}
+#matrix{
+	display:inline-block;
+	float:left;
+	height:100vh;
+	margin:0;
+}
+.div3{
+	display:inline-block;
+	float:right;
+	width:30%;
+	color:white;
+	padding-top: 20px;
+}
+ul>li{
+	margin: 15px;
+}
+a{
+	color:white;
+}
+</style>
+</head>
+<body style="margin:0" onload="drawInputMatrix(3)">
+	<h2>Shuffle the arrangement and click on Solve to get the solution in the least steps</h2>
+	<div style="margin-top:2%;width:100%;">
+		<div style="display:inline-block;width:100%">
+			<div class="div1">
+				
+				<div class="grid-container" id="inputMatrix">
+				</div>
+				<p id="error"></p>
+				<input style="margin-left:40px;height:wrap-content" type="button" value="Solve" id="solve" />
+			</div>
+			
+			<div id="matrix" style="">
+				
+			</div>
+			
+			<div class="div3" >
+				<span>This problem is solved using Iterative Deepening DFS. You could use other algorithms 
+						like AStarMisplacedTiles, AStarManhattanDistance</span>
+				<ul>
+					<li>
+						<a href="https://algorithmsinsight.wordpress.com/graph-theory-2/a-star-in-general/implementing-a-star-to-solve-n-puzzle/" >
+							A* Misplaced Tiles algorithm
+						</a>
+					</li>
+					<li>
+						<a href="https://medium.com/@williamkoehrsen/artificial-intelligence-part-1-search-a1667a5991e5">
+							A* Manhattan algorithm
+						</a>
+					</li>		
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="js/input.js"></script>
+<script src="js/buildMatrix.js"></script>
+<script src="js/graph.js" ></script>
+<script src="js/8Puzzle.js"></script>
+</html>
